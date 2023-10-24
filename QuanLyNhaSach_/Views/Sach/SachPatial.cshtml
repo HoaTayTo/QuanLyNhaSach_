@@ -1,0 +1,34 @@
+﻿@model IEnumerable<QuanLyNhaSach_.Models.Sach>
+
+@{
+    ViewBag.Title = "SachPatial";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<h2>LIST BOOK</h2>
+<div class="row">
+    @{ 
+        foreach(var item in Model)
+            {
+        <div class="col-4">
+            <img src="~/HinhAnhSP/@item.AnhBia" />
+            @if (item.TenSach.Length > 30)
+            {
+                <p>
+                    <strong title="@item.TenSach">Tieu de: @item.TenSach.Substring(0, 30)</strong>
+                    <br />
+                    <a href="#">Xem chi tiet</a>
+                </p>
+            }
+            else
+            {
+                <p>
+                    <strong title="@item.TenSach">Tieu de: @item.TenSach</strong>
+                    <br />
+                    <a href="#">Xem chi tiet</a>
+                </p>
+            }
+        </div>
+            }
+    }
+</div>
+
